@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body onload="readAllItems()">
 
     <!-- Menú de la(s) pagina(s) -->
     <section id="header">
@@ -23,6 +23,34 @@
                 <li><a href="products.html">Products</a></li>
                 <li><a class="active" href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
             </ul>
+        </div>
+    </section>
+
+    <!-- Productos de la(s) pagina(s) -->
+    <section id="product1" class="section-p1">
+        <h2>SHOPPING CART</h2>
+        <div class="pro-container">
+            <div class="pro">
+                <table id="cart_products">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Precio</th>
+                            <th>Importe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Total</td>
+                            <td id="subtotal">$0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     </section>
 
@@ -55,7 +83,7 @@
                 <a href="#">Shipping & Returns</a>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms & Service</a>
-                <a href="#">Retrn Policy</a>
+                <a href="#">Return Policy</a>
             </div>
 
             <div class="col">
@@ -68,8 +96,7 @@
 
             <div class="col">
                 <h5>NEWSLETTER</h5>
-                <p>Sign up for <strong>exclusive promotions</strong>, new collections, tips & much more</P>>
-                
+                <p>Sign up for <strong>exclusive promotions</strong>, new collections, tips & much more</p>                
             </div>
 
             <div class="copyright">
@@ -79,7 +106,4 @@
             
 
     </footer>
-
-
-
 </body>
