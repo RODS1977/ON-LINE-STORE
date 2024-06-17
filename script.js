@@ -92,3 +92,135 @@ function updateQuantity(event){
     document.getElementById("subtotal").textContent = "$" + subtotal;
     localStorage.setItem("products", JSON.stringify(products));
 }
+
+
+// Code for register and login Toggle
+const container = document.querySelector(".container");
+const btnSignIn = document.getElementById("btn-sign-in");
+const btnSignUp = document.getElementById("btn-sign-up");
+
+btnSignIn.addEventListener("click", () => { 
+    container.classList.remove("toggle");
+})
+
+btnSignUp.addEventListener("click", () => {
+    container.classList.add("toggle");
+})
+
+// code for Sign In and Register INPUTS//
+const formSignIn = document.getElementById("formSignIn");
+const formRegister = document.getElementById("formRegister");
+const username = document.getElementById("user-name");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const confpass = document.getElementById("confirm-password");
+var isRegisterFormValid = true;
+
+formSignIn.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = formSignIn.querySelector("#signInEmail").value;
+    const password = formSignIn.querySelector("#signInPassword").value;
+
+    const authenticated = authentication(email, password)
+
+    if (authenticated) {
+        window.location.href = "index.html"
+    }
+    else {
+        alert("Incorrect email or password")
+    }
+});
+
+formRegister.addEventListener("submit", (e) => {
+    e.preventDefault();
+    isRegisterFormValid = true;
+    
+    if (ValidateInputs()) {
+        // Store the inputs in local storage
+        localStorage.setItem("username", username.value);
+        localStorage.setItem("email", email.value);
+        localStorage.setItem("password", password.value);
+        localStorage.setItem("confpass", confpass.value);
+        window.location.href = "index.html";
+    }
+})
+
+
+
+const setError = (element, message) => {
+    isRegisterFormValid = false;
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector(".error");
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add("error");
+    inputControl.classList.remove("success");
+}
+
+const setSuccess = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector(".error");
+
+    if (errorDisplay!=null) {
+        
+        errorDisplay.innerText = '';
+        inputControl.classList.add("success");
+        inputControl.classList.remove("error");
+        console.log(inputControl.classList);
+    }
+}
+
+const isValidEmail = (email) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+const ValidateInputs = () => {
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    const confpassValue = confpass.value.trim();
+
+    if(usernameValue === "") {
+        setError(username, "Username is required");
+    } else {
+        setSuccess(username);
+    }
+
+    if(emailValue === "") {
+        setError(email, "Email is required");
+    } else if (!isValidEmail(emailValue)) {
+        setError(email, "Provide a valid email address");
+    } else {
+        setSuccess(email);
+    }
+
+    if(passwordValue === "") {
+        setError(password, "Password is required");
+    } else if (passwordValue.length < 8) {
+        setError(password, "Password must be at least 8 character.")
+    } else {
+        setSuccess(password);
+    }   
+
+    if(confpassValue === "") {
+        setError(confpass, "Confirm Password is required");
+    } else if (confpassValue !== passwordValue) {
+        setError(confpass, "Password does not match");
+    } else {
+        setSuccess(confpass);
+    }
+
+    return isRegisterFormValid;
+}//
+
+// function for checking password and password confirmation//
+function authentication(email, password) {
+    // Check if the username and password match the stored values
+    if (email === localStorage.getItem("email") && password === localStorage.getItem("password")) {
+        return true;
+    } else {
+        return false;
+    }
+}

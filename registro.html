@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- Encabezado de la(s) pagina(s) -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wood Furniture Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="registro">
+    
+    <div class="container">
+        <div class="container-form">
+            <form id="formSignIn" class="sign-in">
+                <h2>Sign In</h2>
+                <div class="social-networks">
+                    <ion-icon name="logo-google"></ion-icon>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-icon name="logo-twitter"></ion-icon>
+                    <ion-icon name="logo-instagram"></ion-icon>
+                    <ion-icon name="logo-tiktok"></ion-icon>
+                </div>
+                <span> Use your e-mail and password</span>
+                <div class="container-input">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="email" placeholder="E-mail" id="signInEmail">
+                </div>
+                <div class="container-input">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" placeholder="Password" id="signInPassword">
+                </div>
+                <a href="#">Forgot password?</a>
+                <button class="button" id="sign-in">SIGN IN</button>
+            </form>
+        </div>
+
+        <div class="container-form">
+            <form id="formRegister" class="sign-up">
+                <h2>Register</h2>
+                <div class="social-networks">
+                    <ion-icon name="logo-google"></ion-icon>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-icon name="logo-twitter"></ion-icon>
+                    <ion-icon name="logo-instagram"></ion-icon>
+                    <ion-icon name="logo-tiktok"></ion-icon>
+                </div>
+                <span> Use your name and e-mail to register</span>
+                <div class="container-input">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <input type="user-name" placeholder="User Name" id="user-name">
+                    <span class="error"></span>
+                </div>
+                <div class="container-input">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="email" placeholder="Email" id="email">
+                    <span class="error"></span>
+                </div>
+                <div class="container-input">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" placeholder="Password" id="password">
+                    <span class="error"></span>
+                </div>
+                <div class="container-input">
+                    <ion-icon name="eye-off-outline"></ion-icon>
+                    <input type="confirm-password" placeholder="Confirm Password" id="confirm-password">
+                    <span class="error"></span>
+                </div>
+                <button class="button" id="register">REGISTER</button>
+            </form>
+        </div>
+        
+        <div class="container-welcome">
+            <div class="welcome-sign-up welcome">
+                <h3>Welcome</h3>
+                <p>Sign up for exclusive promotions, new collections, tips & much more!</p>
+                <button class="button" id="btn-sign-up">REGISTER</button>
+            </div>
+            <div class="welcome-sign-in welcome">
+                <h3>Hello!</h3>
+                <p>Sign in with your e-mail and password</p>
+                <button class="button" id="btn-sign-in">SIGN IN</button>
+            </div>
+        </div>
+    </div>
+
+    <!--<button id="btn">Click</button> -->
+
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
