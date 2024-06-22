@@ -224,3 +224,154 @@ function authentication(email, password) {
         return false;
     }
 }
+
+// -------------------------------------------- //
+// Code for payment and order//
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleccionamos el formulario y los botones relevantes
+    const form = document.querySelector('.form');
+    const paymentButton = form.querySelector('.form-payment button');
+    const orderButton = form.querySelector('.review-order button');
+
+    // Función para validar campos de texto
+    function validateTextFields(fields) {
+        for (const field of fields) {
+            if (field.value.trim() === '') {
+                throw new Error(`El campo ${field.placeholder} no puede estar vacío.`);
+            }
+        }
+    }
+
+    // Función para validar email
+    function validateEmail(email) {
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(email.value.trim())) {
+            throw new Error(`El email ${email.value.trim()} no es válido.`);
+        }
+    }
+
+    // Función para validar el número de tarjeta de crédito (solo una validación básica de longitud)
+    function validateCardNumber(cardNumber) {
+        if (cardNumber.value.trim().length < 13 || cardNumber.value.trim().length > 19) {
+            throw new Error('El número de la tarjeta de crédito debe tener entre 13 y 19 dígitos.');
+        }
+    }
+
+    // Función para validar la fecha de expiración de la tarjeta (formato básico MM/AA)
+    function validateCardExpiration(cardExpiration) {
+        const expirationPattern = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
+        if (!expirationPattern.test(cardExpiration.value.trim())) {
+            throw new Error('La fecha de expiración debe estar en formato MM/AA.');
+        }
+    }
+
+    // Función para manejar la validación de entrega y el pago
+    function handleValidation(event) {
+        event.preventDefault(); // Prevenir el envío del formulario por defecto
+        try {
+            // Validar campos de entrega
+            const deliveryFields = [
+                document.getElementById('name'),
+                document.getElementById('street'),
+                document.getElementById('city'),
+                document.getElementById('state'),
+                document.getElementById('zip'),
+                document.getElementById('email'),
+                document.getElementById('phone')
+            ];
+            validateTextFields(deliveryFields);
+            validateEmail(document.getElementById('email'));
+
+            // Validar campos de pago (si se está procesando el pago)
+            if (event.target === paymentButton || event.target === orderButton) {
+                const paymentFields = [
+                    document.getElementById('card-name'),
+                    document.getElementById('card-number'),
+                    document.getElementById('card-expiration'),
+                    document.getElementById('card-cvv')
+                ];
+                validateTextFields(paymentFields);
+                validateCardNumber(document.getElementById('card-number'));
+                validateCardExpiration(document.getElementById('card-expiration'));
+            }
+
+            // Simulación del proceso de pago
+            if (event.target === paymentButton) {
+                alert('Datos de entrega válidos. Continúe al pago.');
+            } else if (event.target === orderButton) {
+                alert('Pago realizado con éxito. Gracias por su compra.');
+            }
+
+        } catch (error) {
+            alert(error.message); // Mostrar el mensaje de error al usuario
+        }
+    }
+
+    // Asignar la función de validación a los botones correspondientes
+    paymentButton.addEventListener('click', handleValidation);
+    orderButton.addEventListener('click', handleValidation);
+});
+
+
+//-----CART AND CHECKOUT-----//
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleccionamos los botones y las secciones relevantes
+    const continueToPaymentButton = document.getElementById('continueToPayment');
+    const continueToFinishButton = document.getElementById('continueToFinish');
+    const placeOrderButton = document.getElementById('placeOrder');
+
+    const formDelivery = document.querySelector('.form-delivery');
+    const formPayment = document.querySelector('.form-payment');
+    const reviewOrder = document.querySelector('.review-order');
+
+    // Función para ocultar una sección
+    function hideSection(section) {
+        section.classList.add('hidden');
+    }
+
+    // Función para mostrar una sección
+    function showSection(section) {
+        section.classList.remove('hidden');
+    }
+
+    // Event listener para "CONTINUE TO PAYMENT"
+    continueToPaymentButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        try {
+            // Ocultar sección de entrega y mostrar sección de pago
+            hideSection(formDelivery);
+            showSection(formPayment);
+        } catch (error) {
+            console.error("Error al continuar a la sección de pago:", error);
+        }
+    });
+
+    // Event listener para "CONTINUE TO FINISH"
+    continueToFinishButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        try {
+            // Ocultar sección de pago y mostrar sección de revisión de pedido
+            hideSection(formPayment);
+            showSection(reviewOrder);
+        } catch (error) {
+            console.error("Error al continuar a la revisión de pedido:", error);
+        }
+    });
+
+    // Event listener para "PLACE ORDER"
+    placeOrderButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        try {
+            // Ocultar sección de revisión de pedido y finalizar la compra (simulado)
+            hideSection(reviewOrder);
+            alert('Pedido realizado con éxito. Gracias por su compra.');
+        } catch (error) {
+            console.error("Error al realizar el pedido:", error);
+        }
+    });
+
+    // Ocultar secciones de pago y revisión al cargar la página
+    hideSection(formPayment);
+    hideSection(reviewOrder);
+});
+

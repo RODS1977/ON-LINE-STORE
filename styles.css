@@ -265,7 +265,7 @@ footer .icon{
 }
 
 .pro-container {
-    width: 80%;
+    width: 100%;
     margin: 50px auto;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -273,13 +273,25 @@ footer .icon{
     overflow: hidden;
 }
 
+#table-container {
+    width: 100%;
+    margin: 50px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
 .pro {
+    width: 100%;
     padding: 20px;
 }
 
 #cart_products {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
 }
 
 #cart_products .des {
@@ -288,6 +300,7 @@ footer .icon{
 }
 
 #cart_products th, #cart_products td {
+    width: 100%;
     padding: 15px;
     text-align: left;
     
@@ -295,6 +308,7 @@ footer .icon{
 }
 
 #cart_products th {
+    width: 100%;
     background-color: #f8f8f8;
     font-weight: bold;
 }
@@ -304,12 +318,21 @@ footer .icon{
 }
 
 #cart_products td {
+    width: 100%;
     vertical-align: middle;
 }
 
 #cart_products td:nth-child(2), #cart_products td:nth-child(3), #cart_products td:nth-child(4) {
-    text-align: center;
+    text-align: left;
 }
+
+#checkout {
+  background-color: #9E7C5D;
+  padding: 20px;
+  text-align: right;
+  color:#000000;
+}
+
 
 @media (max-width: 768px) {
     .pro-container {
@@ -485,4 +508,289 @@ footer .icon{
 span.error {
   font-size: x-small;
   color: red;
+}
+
+
+/*CART & CHECKOUT*/
+.hidden {
+  display: none;
+}
+
+.checkout-container {
+  margin:20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+}
+
+.checkout-container h1 {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.form-container {
+  width: 90%;
+  height: 100%;
+  margin-left: 10px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: #606063 0px 0px 5px;
+  padding: 20px 20px 20px 20px;
+  border-radius: 15px;
+  border: collapse;
+}
+
+.table-delivery {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.form-delivery {
+  grid-template-columns: repeat(1, 1fr);
+  display:block;
+  gap: 10px;
+}
+
+.form-delivery #name {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-delivery #street {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-delivery #city {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-delivery #state {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-delivery #zip {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-delivery #delivery-instructions {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-delivery #email {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-delivery #phone {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-delivery #phone2 {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-delivery button {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  color: white !important;
+  background-color: #9E7C5D;
+}
+
+.form-payment {
+  grid-template-columns: repeat(1, 1fr);
+  display:block;
+  gap: 10px;
+}
+
+.form-payment #name {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-payment #street {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-payment #city {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+} 
+
+.form-payment #state {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+} 
+
+.form-payment #zip {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+} 
+
+.form-payment #card-type {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-payment #card-name {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-payment #card-number {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-payment #card-expiration {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.form-payment #card-cvv {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+} 
+
+.form-payment button {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  color: white !important;
+  background-color: #9E7C5D;
+}
+
+.review-order {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 4px;
+  grid-template-columns: repeat(1, 1fr);
+  display:block;
+  gap: 10px;
+}
+
+.review-order p {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.review-order span {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+} 
+
+.review-order button {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  color: white !important;
+  background-color: #9E7C5D;
 }
