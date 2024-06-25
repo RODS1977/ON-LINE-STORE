@@ -1,3 +1,23 @@
+var mysql =require('mysql');
+
+var connection = mysql.createConnection({
+    host: 'localhost',
+    database: 'online-store',
+    user: 'root',
+    password: ''
+});
+
+conexion.connect(function (error, conn) {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log("CONECTADO: " + conn.connectionId);
+    }
+});
+
+conexion.end();
+
+
 function addToCart(event) {
     event.preventDefault();
     var product = {

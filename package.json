@@ -1,0 +1,25 @@
+{
+  "name": "online-store",
+  "version": "1.0.0",
+  "description": "conexion mysql nodejs",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RODS1977/ONLINE-STORE.git"
+  },
+  "author": "RSB77",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RODS1977/ONLINE-STORE/issues"
+  },
+  "homepage": "https://github.com/RODS1977/ONLINE-STORE#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
